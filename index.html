@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#30251f">
 <title>BIRICA – When Dreams Come True</title>
+
 <style>
 * {
   box-sizing: border-box;
@@ -44,24 +45,12 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(35, 23, 16, 0.04) 0%,
-    rgba(35, 23, 16, 0.02) 55%,
-    rgba(25, 17, 12, 0.20) 100%
-  );
 }
 
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -75,7 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .discgolf-link {
@@ -95,36 +84,25 @@ body {
   height: auto;
 }
 
-.navigation {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  color: #fff6e9;
-  text-shadow: 0 2px 8px rgba(25, 15, 8, 0.8);
+  gap: 11px;
+  padding: 1px 8px;
 }
 
-.arrow {
-  appearance: none;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 246, 233, 0.9);
+.dot {
+  display: block;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: rgba(157, 91, 49, 0.92);
-  color: white;
-  font-size: 29px;
-  line-height: 1;
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 1px 5px rgba(25, 15, 8, 0.18);
 }
 
-.swipe {
-  min-width: 68px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 650;
-  letter-spacing: 0.12em;
+.dot.active {
+  background: #fff;
 }
 
 @media (max-height: 760px) {
@@ -135,16 +113,24 @@ body {
   .discgolf-link {
     width: 94%;
   }
+}
 
-  .arrow {
-    width: 40px;
-    height: 40px;
+@media (max-width: 380px) {
+  .page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .app-area {
+    margin-top: clamp(220px, 39vh, 330px);
   }
 }
 </style>
 </head>
+
 <body>
 <div class="page">
+
   <img
     class="background"
     src="assets/birica-background.png"
@@ -152,10 +138,9 @@ body {
     aria-hidden="true"
   >
 
-  <div class="overlay" aria-hidden="true"></div>
-
   <main class="content">
     <section class="app-area" aria-label="Biricas appar">
+
       <a
         class="discgolf-link"
         href="https://birica-discgolf.vercel.app/"
@@ -167,56 +152,14 @@ body {
         >
       </a>
 
-      <nav class="navigation" aria-label="Navigering">
-        <button class="arrow" id="previous" aria-label="Föregående app">‹</button>
-        <span class="swipe" id="swipe-label">Swipe</span>
-        <button class="arrow" id="next" aria-label="Nästa app">›</button>
-      </nav>
+      <div class="pagination" aria-label="App 1 av 3">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
     </section>
   </main>
 </div>
-
-<script>
-let startX = null;
-let noticeTimer;
-
-function showComingSoon() {
-  const label = document.getElementById("swipe-label");
-  label.textContent = "Fler appar kommer";
-
-  clearTimeout(noticeTimer);
-  noticeTimer = setTimeout(() => {
-    label.textContent = "Swipe";
-  }, 1400);
-}
-
-document
-  .getElementById("previous")
-  .addEventListener("click", showComingSoon);
-
-document
-  .getElementById("next")
-  .addEventListener("click", showComingSoon);
-
-document
-  .querySelector(".page")
-  .addEventListener("touchstart", event => {
-    startX = event.changedTouches[0].clientX;
-  }, { passive: true });
-
-document
-  .querySelector(".page")
-  .addEventListener("touchend", event => {
-    if (startX === null) return;
-
-    const distance = event.changedTouches[0].clientX - startX;
-
-    if (Math.abs(distance) > 65) {
-      showComingSoon();
-    }
-
-    startX = null;
-  }, { passive: true });
-</script>
 </body>
 </html>
