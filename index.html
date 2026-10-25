@@ -17,14 +17,14 @@ main{width:min(100% - 28px,780px);margin:0 auto;padding:22px 0 30px}
 .intro{text-align:center;margin:0 auto 22px;text-shadow:0 3px 18px rgba(0,0,0,.7)}
 .intro h1{margin:0 0 6px;color:var(--gold2);font-size:clamp(23px,5vw,32px)}
 .intro p{margin:0;color:var(--text);font-size:clamp(14px,2.7vw,17px)}
-.apps{display:grid;gap:15px;width:100%;max-width:610px;margin:0 auto}
+.apps{display:grid;gap:15px;width:82%;max-width:500px;margin:0 auto}
 .app-card{display:block;width:100%;overflow:hidden;border-radius:22px;text-decoration:none;line-height:0;box-shadow:0 12px 22px rgba(0,0,0,.58),0 4px 7px rgba(0,0,0,.35);transition:transform .16s ease,box-shadow .16s ease;-webkit-tap-highlight-color:transparent}
 .app-card img{display:block;width:100%;height:auto}
 .app-card:hover,.app-card:focus-visible{transform:translateY(-2px);box-shadow:0 17px 29px rgba(0,0,0,.68),0 0 0 2px rgba(229,182,111,.45)}
 .app-card:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}
 footer{padding:0 12px 26px;text-align:center;color:#d1a16b;text-shadow:0 2px 8px #000;font-size:13px;letter-spacing:.03em}
-@media(min-width:700px){main{padding-top:30px}.apps{gap:17px}}
-@media(max-width:420px){main{width:calc(100% - 22px);padding-top:18px}.apps{gap:12px}.app-card{border-radius:15px}}
+@media(min-width:700px){main{padding-top:30px}.apps{gap:17px;width:82%;max-width:500px}}
+@media(max-width:420px){main{width:calc(100% - 22px);padding-top:18px}.apps{gap:12px;width:84%;}.app-card{border-radius:15px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
