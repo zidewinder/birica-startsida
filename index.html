@@ -7,24 +7,35 @@
 <meta name="description" content="BIRICA – When Dreams Come True">
 <title>BIRICA – When Dreams Come True</title>
 <style>
-:root{color-scheme:dark;--bg:#1b120f;--panel:#2b1c17;--panel-hover:#3b261d;--gold:#e5b66f;--gold-light:#f0ca83;--text:#f7f0e7;--muted:#c9b6a5;--line:#684631}
-*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.hero{width:100%;background:#281710;border-bottom:2px solid #805638;overflow:hidden}.hero img{display:block;width:100%;height:auto}
-main{width:min(100% - 28px,900px);margin:0 auto;padding:24px 0 36px}.intro{text-align:center;margin:0 auto 22px;max-width:620px}.intro h1{margin:0 0 7px;color:var(--gold-light);font-size:clamp(23px,5vw,32px);letter-spacing:.02em}.intro p{margin:0;color:var(--muted);line-height:1.5;font-size:clamp(14px,2.7vw,17px)}
-.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.app-card{display:flex;min-height:170px;flex-direction:column;justify-content:space-between;gap:20px;padding:22px;color:var(--text);text-decoration:none;background:linear-gradient(145deg,#342219,var(--panel));border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 22px rgba(0,0,0,.14);transition:transform .15s ease,border-color .15s ease,background .15s ease;-webkit-tap-highlight-color:transparent}
-.app-card:hover,.app-card:focus-visible{background:linear-gradient(145deg,#493020,var(--panel-hover));border-color:var(--gold)}.app-card:active{transform:scale(.99)}.app-card:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}.app-top{display:flex;align-items:center;gap:13px}.app-icon{display:grid;flex:0 0 50px;width:50px;height:50px;place-items:center;border-radius:14px;color:#28170e;background:linear-gradient(135deg,#dca45f,#f0ca83);font-size:25px;font-weight:900}.app-card h2{margin:0;font-size:clamp(19px,3vw,25px)}.app-card p{margin:5px 0 0;color:var(--muted);font-size:14px;line-height:1.45}.open-label{align-self:flex-start;color:var(--gold-light);font-weight:800;letter-spacing:.02em}
-footer{padding:0 14px 24px;color:#947966;text-align:center;font-size:12px}
-@media(max-width:560px){main{width:min(100% - 22px,900px);padding-top:19px}.apps{grid-template-columns:1fr;gap:12px}.app-card{min-height:130px;padding:18px}.app-top{gap:12px}.app-icon{flex-basis:46px;width:46px;height:46px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+:root{color-scheme:dark;--gold:#e5b66f;--gold2:#f0ca83;--text:#f7f0e7;--line:#805638}
+*{box-sizing:border-box}
+html{min-height:100%;background:#1b120f}
+body{margin:0;min-height:100vh;color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(rgba(27,18,15,.50),rgba(27,18,15,.72)),url("birica-startsida-bakgrund.jpg") center top/cover fixed,#1b120f}
+.hero{width:100%;background:#281710;border-bottom:2px solid var(--line);overflow:hidden}
+.hero img{display:block;width:100%;height:auto}
+main{width:min(100% - 28px,780px);margin:0 auto;padding:22px 0 30px}
+.intro{text-align:center;margin:0 auto 22px;text-shadow:0 3px 18px rgba(0,0,0,.7)}
+.intro h1{margin:0 0 6px;color:var(--gold2);font-size:clamp(23px,5vw,32px)}
+.intro p{margin:0;color:var(--text);font-size:clamp(14px,2.7vw,17px)}
+.apps{display:grid;gap:15px;width:100%;max-width:610px;margin:0 auto}
+.app-card{display:block;width:100%;overflow:hidden;border-radius:22px;text-decoration:none;line-height:0;box-shadow:0 12px 22px rgba(0,0,0,.58),0 4px 7px rgba(0,0,0,.35);transition:transform .16s ease,box-shadow .16s ease;-webkit-tap-highlight-color:transparent}
+.app-card img{display:block;width:100%;height:auto}
+.app-card:hover,.app-card:focus-visible{transform:translateY(-2px);box-shadow:0 17px 29px rgba(0,0,0,.68),0 0 0 2px rgba(229,182,111,.45)}
+.app-card:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}
+footer{padding:0 12px 26px;text-align:center;color:#d1a16b;text-shadow:0 2px 8px #000;font-size:13px;letter-spacing:.03em}
+@media(min-width:700px){main{padding-top:30px}.apps{gap:17px}}
+@media(max-width:420px){main{width:calc(100% - 22px);padding-top:18px}.apps{gap:12px}.app-card{border-radius:15px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header class="hero"><img src="birica-welcome-header.png" alt="BIRICA – When Dreams Come True – WELCOME, med Selma vid en solnedgång över en svensk sjö"></header>
+<header class="hero"><img src="birica-welcome-header.png" alt="BIRICA – When Dreams Come True – WELCOME, med Selma vid solnedgången"></header>
 <main>
 <section class="intro" aria-labelledby="welcome-title"><h1 id="welcome-title">Välkommen till BIRICA</h1><p>Välj vad du vill göra idag.</p></section>
 <nav class="apps" aria-label="BIRICA-appar">
-<a class="app-card" href="https://birica-discgolf.vercel.app/" aria-label="Öppna BIRICA Discgolf"><div class="app-top"><span class="app-icon" aria-hidden="true">🥏</span><div><h2>Discgolf</h2><p>Rundor, scorekort och statistik.</p></div></div><span class="open-label">Öppna Discgolf&nbsp; ↗</span></a>
-<a class="app-card" href="https://birica-ekonomi.vercel.app/" aria-label="Öppna BIRICA Ekonomi"><div class="app-top"><span class="app-icon" aria-hidden="true">₭</span><div><h2>Ekonomi</h2><p>Budget, utgifter och hushållets översikt.</p></div></div><span class="open-label">Öppna Ekonomi&nbsp; ↗</span></a>
+<a class="app-card" href="https://birica-discgolf.vercel.app/" aria-label="Öppna BIRICA Discgolf"><img src="birica-card-discgolf.png" alt="BIRICA Discgolf – Spela, registrera, utvecklas"></a>
+<a class="app-card" href="https://birica-ekonomi.vercel.app/" aria-label="Öppna BIRICA Ekonomi"><img src="birica-card-ekonomi.png" alt="BIRICA Ekonomi – Planera, få koll, njut mer"></a>
+<a class="app-card" href="#" aria-label="BIRICA Framtid – kommer senare" onclick="event.preventDefault();alert('BIRICA Framtid kommer snart!');"><img src="birica-card-framtid.png" alt="BIRICA Framtid – Idéer, planer, möjligheter"></a>
 </nav>
 </main><footer>BIRICA · When Dreams Come True</footer>
 </body></html>
