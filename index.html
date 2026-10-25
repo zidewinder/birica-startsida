@@ -4,207 +4,219 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#a85f31">
-<title>BIRICA – When Dreams Comes True</title>
+<meta name="theme-color" content="#30251f">
+<title>BIRICA – When Dreams Come True</title>
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
+  width: 100%;
   min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
-  color: #fff7ed;
-  background: #35261e;
+  background: #30251f;
 }
 
 .page {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: max(24px, env(safe-area-inset-top)) 22px
-           max(12px, env(safe-area-inset-bottom));
-}
-
-.page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(180deg, #ffe0b433, #25170d40),
-    url("assets/selma-sunset.jpg") center 55% / cover no-repeat;
-}
-
-.page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    180deg, #fff0d622 0%, transparent 45%, #1e130d22 100%
-  );
-  pointer-events: none;
-}
-
-.brand {
   width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
+  padding:
+    env(safe-area-inset-top, 0px)
+    20px
+    env(safe-area-inset-bottom, 0px);
 }
 
-.logo {
-  display: block;
-  width: min(88%, 430px);
-  height: auto;
-  object-fit: contain;
-}
-
-.tagline {
-  margin-top: 10px;
-  text-align: center;
-  color: #30251f;
-  font-size: clamp(16px, 4.5vw, 22px);
-  letter-spacing: .025em;
-  font-weight: 500;
-  text-shadow: 0 1px 8px #fff4e8aa;
-}
-
-.main {
-  width: min(100%, 480px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  margin-top: clamp(30px, 6vh, 60px);
-}
-
-.card {
-  display: block;
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
-  overflow: hidden;
-  border: 2px solid #fff0dc;
-  border-radius: 22px;
-  box-shadow: 0 8px 26px #24150d55;
-  line-height: 0;
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2.35 / 1;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-.navrow {
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 23, 16, 0.04) 0%,
+    rgba(35, 23, 16, 0.02) 55%,
+    rgba(25, 17, 12, 0.20) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.app-area {
+  width: min(100%, 440px);
+  margin-top: clamp(250px, 42vh, 390px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.discgolf-link {
+  display: block;
+  width: 100%;
+  border: 2px solid rgba(255, 242, 225, 0.9);
+  border-radius: 17px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: 0 7px 22px rgba(25, 15, 8, 0.28);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.discgolf-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.navigation {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 25px;
+  color: #fff6e9;
+  text-shadow: 0 2px 8px rgba(25, 15, 8, 0.8);
 }
 
 .arrow {
-  width: 48px;
-  height: 48px;
+  appearance: none;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  border: 1.5px solid #fff3e3;
+  border: 1px solid rgba(255, 246, 233, 0.9);
   border-radius: 50%;
-  background: #a85f31;
+  background: rgba(157, 91, 49, 0.92);
   color: white;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 1;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .swipe {
-  min-width: 76px;
+  min-width: 68px;
   text-align: center;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-shadow: 0 2px 8px #392015;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
 }
 
-.spacer {
-  flex: 1;
-  min-height: 20px;
-}
+@media (max-height: 760px) {
+  .app-area {
+    margin-top: 36vh;
+  }
 
-@media (max-height: 720px) {
-  .brand { margin-top: 0; }
-  .logo { width: min(72%, 320px); }
-  .tagline { margin-top: 6px; font-size: 16px; }
-  .main { margin-top: 22px; gap: 12px; }
-  .arrow { width: 42px; height: 42px; }
-  .spacer { min-height: 8px; }
+  .discgolf-link {
+    width: 94%;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
 }
 </style>
 </head>
 <body>
 <div class="page">
+  <img
+    class="background"
+    src="assets/birica-background.png"
+    alt=""
+    aria-hidden="true"
+  >
 
-  <header class="brand">
-    <img class="logo"
-         src="assets/birica-logo.png"
-         alt="BIRICA">
-    <div class="tagline">When Dreams Comes True</div>
-  </header>
+  <div class="overlay" aria-hidden="true"></div>
 
-  <main class="main">
-    <a class="card"
-       href="https://birica-discgolf.vercel.app/"
-       aria-label="Öppna Birica Discgolf">
-      <img src="assets/discgolf-card.jpg"
-           alt="Birica Discgolf">
-    </a>
+  <main class="content">
+    <section class="app-area" aria-label="Biricas appar">
+      <a
+        class="discgolf-link"
+        href="https://birica-discgolf.vercel.app/"
+        aria-label="Öppna Birica Discgolf"
+      >
+        <img
+          src="assets/discgolf-card.jpg"
+          alt="Birica Discgolf"
+        >
+      </a>
 
-    <div class="navrow" aria-label="Navigering mellan appar">
-      <button class="arrow" id="prev" aria-label="Föregående app">‹</button>
-      <span class="swipe" id="swipe">Swipe</span>
-      <button class="arrow" id="next" aria-label="Nästa app">›</button>
-    </div>
+      <nav class="navigation" aria-label="Navigering">
+        <button class="arrow" id="previous" aria-label="Föregående app">‹</button>
+        <span class="swipe" id="swipe-label">Swipe</span>
+        <button class="arrow" id="next" aria-label="Nästa app">›</button>
+      </nav>
+    </section>
   </main>
-
-  <div class="spacer"></div>
 </div>
 
 <script>
 let startX = null;
 let noticeTimer;
 
-function showNotice() {
-  const label = document.getElementById("swipe");
+function showComingSoon() {
+  const label = document.getElementById("swipe-label");
   label.textContent = "Fler appar kommer";
+
   clearTimeout(noticeTimer);
   noticeTimer = setTimeout(() => {
     label.textContent = "Swipe";
   }, 1400);
 }
 
-document.getElementById("prev").addEventListener("click", showNotice);
-document.getElementById("next").addEventListener("click", showNotice);
+document
+  .getElementById("previous")
+  .addEventListener("click", showComingSoon);
 
-document.querySelector(".page").addEventListener("touchstart", e => {
-  startX = e.changedTouches[0].clientX;
-}, { passive: true });
+document
+  .getElementById("next")
+  .addEventListener("click", showComingSoon);
 
-document.querySelector(".page").addEventListener("touchend", e => {
-  if (startX === null) return;
-  const dx = e.changedTouches[0].clientX - startX;
-  if (Math.abs(dx) > 65) showNotice();
-  startX = null;
-}, { passive: true });
+document
+  .querySelector(".page")
+  .addEventListener("touchstart", event => {
+    startX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+document
+  .querySelector(".page")
+  .addEventListener("touchend", event => {
+    if (startX === null) return;
+
+    const distance = event.changedTouches[0].clientX - startX;
+
+    if (Math.abs(distance) > 65) {
+      showComingSoon();
+    }
+
+    startX = null;
+  }, { passive: true });
 </script>
 </body>
 </html>
