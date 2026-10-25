@@ -1,19 +1,210 @@
-<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#a85f31"><title>Birica – When Dreams Comes True</title>
+
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#a85f31">
+<title>BIRICA – When Dreams Comes True</title>
 <style>
-:root{--copper:#a85f31;--cream:#fff4e8}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{background:#6d482f;color:var(--cream)}
-.page{min-height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding:max(24px,env(safe-area-inset-top)) 22px max(14px,env(safe-area-inset-bottom));isolation:isolate}
-.page:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(255,210,151,.25),rgba(25,24,19,.30)),url("assets/selma-sunset.jpg") center/cover no-repeat}
-.brand{width:100%;text-align:center;margin-top:2vh}.mark{width:66px;height:50px;margin:0 auto 2px;display:block}.wordmark{font-size:clamp(38px,11vw,54px);font-weight:850;letter-spacing:-.055em;line-height:1;color:#9f542b;text-shadow:0 1px 8px #fff5e6a0}.rule{height:5px;width:min(76%,390px);background:#9f542b;margin:8px auto 0;border-radius:2px}.tagline{font-size:clamp(16px,4.5vw,22px);letter-spacing:.025em;color:#30251f;margin-top:12px;text-shadow:0 1px 8px #fff4e8}
-.main{width:min(100%,480px);margin-top:clamp(35px,7vh,72px);display:flex;flex-direction:column;align-items:center;gap:20px}.card{display:block;width:100%;border-radius:20px;overflow:hidden;border:1.5px solid rgba(255,244,232,.8);box-shadow:0 8px 26px #2b160f40;line-height:0}.card img{display:block;width:100%;height:auto;aspect-ratio:2.35/1;object-fit:cover}
-.navrow{display:flex;align-items:center;justify-content:center;gap:26px;line-height:1;color:#fff8ef;text-shadow:0 2px 8px #392015}.arrow{appearance:none;border:1px solid #fff3e3;background:#a85f31;color:#fff8ef;border-radius:50%;width:48px;height:48px;display:grid;place-items:center;font-size:29px;box-shadow:0 3px 10px #2b160f35;cursor:pointer}.swipe{font-size:17px;font-weight:650;letter-spacing:.12em}.spacer{flex:1;min-height:24px}footer{width:100%;display:flex;justify-content:center}footer img{width:min(100%,520px);height:auto;max-height:31svh;object-fit:cover;object-position:center 58%;border-radius:18px 18px 0 0;mask-image:linear-gradient(to bottom,transparent 0%,black 16%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 16%)}
-@media(max-height:720px){.brand{margin-top:0}.mark{width:48px;height:36px}.wordmark{font-size:36px}.rule{margin-top:5px;height:4px}.tagline{margin-top:7px;font-size:15px}.main{margin-top:22px;gap:12px}.arrow{width:42px;height:42px}.spacer{min-height:8px}footer img{max-height:24svh}}
-</style></head><body><div class="page">
-<header class="brand"><svg class="mark" viewBox="0 0 120 90" aria-hidden="true"><path d="M8 76 48 12Q58 -2 69 15L111 76Q115 84 104 84H14Q2 84 8 76Z" fill="#9f542b"/><path d="M31 70 59 28 88 70Z" fill="#fff0df"/><path d="M43 70 59 45 75 70Z" fill="#9f542b"/></svg><div class="wordmark">BIRICA</div><div class="rule"></div><div class="tagline">When Dreams Comes True</div></header>
-<main class="main"><a class="card" href="https://birica-discgolf.vercel.app/" aria-label="Öppna Birica Discgolf"><img src="assets/discgolf-card.jpg" alt="Birica Discgolf"></a><div class="navrow" aria-label="Navigering mellan appar"><button class="arrow" id="prev" aria-label="Föregående app">‹</button><span class="swipe">Swipe</span><button class="arrow" id="next" aria-label="Nästa app">›</button></div></main>
-<div class="spacer"></div><footer><img src="assets/selma-sunset.jpg" alt="Selma vid solnedgången över sjön"></footer></div>
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  color: #fff7ed;
+  background: #35261e;
+}
+
+.page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: max(24px, env(safe-area-inset-top)) 22px
+           max(12px, env(safe-area-inset-bottom));
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, #ffe0b433, #25170d40),
+    url("assets/selma-sunset.jpg") center 55% / cover no-repeat;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg, #fff0d622 0%, transparent 45%, #1e130d22 100%
+  );
+  pointer-events: none;
+}
+
+.brand {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.logo {
+  display: block;
+  width: min(88%, 430px);
+  height: auto;
+  object-fit: contain;
+}
+
+.tagline {
+  margin-top: 10px;
+  text-align: center;
+  color: #30251f;
+  font-size: clamp(16px, 4.5vw, 22px);
+  letter-spacing: .025em;
+  font-weight: 500;
+  text-shadow: 0 1px 8px #fff4e8aa;
+}
+
+.main {
+  width: min(100%, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: clamp(30px, 6vh, 60px);
+}
+
+.card {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #fff0dc;
+  border-radius: 22px;
+  box-shadow: 0 8px 26px #24150d55;
+  line-height: 0;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.35 / 1;
+  object-fit: cover;
+}
+
+.navrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.arrow {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid #fff3e3;
+  border-radius: 50%;
+  background: #a85f31;
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.swipe {
+  min-width: 76px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-shadow: 0 2px 8px #392015;
+}
+
+.spacer {
+  flex: 1;
+  min-height: 20px;
+}
+
+@media (max-height: 720px) {
+  .brand { margin-top: 0; }
+  .logo { width: min(72%, 320px); }
+  .tagline { margin-top: 6px; font-size: 16px; }
+  .main { margin-top: 22px; gap: 12px; }
+  .arrow { width: 42px; height: 42px; }
+  .spacer { min-height: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="brand">
+    <img class="logo"
+         src="assets/birica-logo.png"
+         alt="BIRICA">
+    <div class="tagline">When Dreams Comes True</div>
+  </header>
+
+  <main class="main">
+    <a class="card"
+       href="https://birica-discgolf.vercel.app/"
+       aria-label="Öppna Birica Discgolf">
+      <img src="assets/discgolf-card.jpg"
+           alt="Birica Discgolf">
+    </a>
+
+    <div class="navrow" aria-label="Navigering mellan appar">
+      <button class="arrow" id="prev" aria-label="Föregående app">‹</button>
+      <span class="swipe" id="swipe">Swipe</span>
+      <button class="arrow" id="next" aria-label="Nästa app">›</button>
+    </div>
+  </main>
+
+  <div class="spacer"></div>
+</div>
+
 <script>
-let startX=null;function notice(){const s=document.querySelector('.swipe');s.textContent='Fler appar kommer';setTimeout(()=>s.textContent='Swipe',1400)}
-document.querySelector('#prev').addEventListener('click',notice);document.querySelector('#next').addEventListener('click',notice);
-document.querySelector('.page').addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX},{passive:true});
-document.querySelector('.page').addEventListener('touchend',e=>{if(startX===null)return;const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>65)notice();startX=null},{passive:true});
-</script></body></html>
+let startX = null;
+let noticeTimer;
+
+function showNotice() {
+  const label = document.getElementById("swipe");
+  label.textContent = "Fler appar kommer";
+  clearTimeout(noticeTimer);
+  noticeTimer = setTimeout(() => {
+    label.textContent = "Swipe";
+  }, 1400);
+}
+
+document.getElementById("prev").addEventListener("click", showNotice);
+document.getElementById("next").addEventListener("click", showNotice);
+
+document.querySelector(".page").addEventListener("touchstart", e => {
+  startX = e.changedTouches[0].clientX;
+}, { passive: true });
+
+document.querySelector(".page").addEventListener("touchend", e => {
+  if (startX === null) return;
+  const dx = e.changedTouches[0].clientX - startX;
+  if (Math.abs(dx) > 65) showNotice();
+  startX = null;
+}, { passive: true });
+</script>
+</body>
+</html>
